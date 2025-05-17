@@ -3,13 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# ✅ 여기에 너의 MySQL 주소를 입력해야 해!
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1013@localhost/medibuddy_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# ✅ 예약 테이블 모델 정의
 class Reservation(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
@@ -19,11 +17,9 @@ class Reservation(db.Model):
     is_self = db.Column(db.Boolean)
     symptoms = db.Column(db.String(200))
 
-# ✅ 최초 실행 시 테이블 생성
 with app.app_context():
     db.create_all()
 
-# 페이지 라우팅
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -42,7 +38,6 @@ def information():
         ban = request.form['ban']
         number = request.form['number']
 
-        # DB에 새 예약 생성, 일단 is_self/symptoms는 None
         new_reservation = Reservation(
             name=name,
             grade=grade,
