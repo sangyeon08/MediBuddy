@@ -56,19 +56,19 @@
 
 <body>
 <div class="container">
-    <form action="/cure_method" method="post">
-        <input type="hidden" name="student_id" value="{{ student_id }}">
-        <input type="hidden" name="name" value="{{ name }}">
-        <button type="submit" name="isSelf" value="true"
-                style="all: unset; border: none; padding: 0; background: none;">
-            <img class="rectangle" src="{{ url_for('static', filename='img/rectangle3.png') }}"/>
-            <img class="button" src="{{ url_for('static', filename='img/group10.png') }}"/>
-        </button>
+<form action="/cure_method" method="post">
+    <input type="hidden" name="student_id" value="{{ student_id }}">
+    <input type="hidden" name="name" value="{{ name }}">
 
-        <a href="{{ url_for('symptoms') }}">
-            <img class="button2" src="{{ url_for('static', filename='img/Group11.png') }}"/>
-        </a>
-    </form>
+    <button type="submit" name="treatment" value="true" style="all: unset; border: none; padding: 0; background: none;">
+        <img class="rectangle" src="{{ url_for('static', filename='img/rectangle3.png') }}"/>
+        <img class="button" src="{{ url_for('static', filename='img/group10.png') }}"/>
+    </button>
+
+    <button type="submit" name="treatment" value="false" style="all: unset; border: none; padding: 0; background: none;">
+        <img class="button2" src="{{ url_for('static', filename='img/Group11.png') }}"/>
+    </button>
+</form>
 </div>
 </body>
 

@@ -123,7 +123,7 @@
                         <p class="studentNum">{{ item.student_id }}</p>
                         <p class="name">{{ item.name }}</p>
                         <p class="cure">
-                            {% if item.treatment == "스스로 치료" %}
+                             {% if item.treatment %}
                             자가치료
                             {% else %}
                             선생님 치료
